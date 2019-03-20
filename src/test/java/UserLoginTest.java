@@ -23,9 +23,9 @@ public class UserLoginTest {
 
     @Test
     public void userCanLogin(){
-        mainPage.open();
-        mainPage.loginUser("pizejeku-1795@yopmail.com", "kV8AkL4nrC9CbTa");
-
-        userProfilePage.checkLoggedUserName("testUser");
+        mainPage
+                .open()
+                .loginUser("pizejeku-1795@yopmail.com", "kV8AkL4nrC9CbTa")
+                .checkLoggedUserName("testUser");
     }
 }
