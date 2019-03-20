@@ -9,7 +9,7 @@ public class MainPage {
 
     SelenideElement loginLink = $("a.header-topline__user-link");
     SelenideElement userNameField  = $("#auth_email");
-    SelenideElement userPasswordField  = $("#auth_password");
+    SelenideElement userPasswordField  = $("#auth_pass");
     SelenideElement userLoginButton = $("button.auth-modal__login-button");
 
     public MainPage open(){
