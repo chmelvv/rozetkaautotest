@@ -7,14 +7,13 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage {
 
-    SelenideElement loginLink = $("a.header-user-link");
-    SelenideElement userNameField  = $("input[name='login']");
-    SelenideElement userPasswordField  = $("input[name='password']");
-    SelenideElement userLoginButton = $("button[name='auth_submit']");
+    SelenideElement loginLink = $("a.header-topline__user-link"); //$("a[name='signin']");
+    SelenideElement userNameField  = $("input#auth_email"); //$("input[name='login']");
+    SelenideElement userPasswordField  = $("input#auth_pass"); //$("input[name='password']");
+    SelenideElement userLoginButton = $("button.auth-modal__login-button"); //$("button[name='auth_submit']");
 
     public MainPage open(){
         Selenide.open("/");
-        Selenide.clearBrowserCookies();
         return this;
     }
 
@@ -26,4 +25,6 @@ public class MainPage {
 
         return new UserProfilePage();
     }
+
+
 }

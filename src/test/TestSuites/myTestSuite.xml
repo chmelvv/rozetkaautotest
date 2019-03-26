@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="myTestSuite">
-	<test name="parametrizedUserCanLogin">
+<suite name="myTestSuite" parallel="methods">
+	<test name="LoginTest">
 		<parameter name="username" value="testUser" />
 		<parameter name="email" value="pizejeku-1795@yopmail.com" />
 		<parameter name="password" value="kV8AkL4nrC9CbTa" />
 		<classes>
 			<class name="UserLoginTest" />
+			<!--<class name="UserLoginTest2" />-->
 		</classes>
 	</test>
 </suite>

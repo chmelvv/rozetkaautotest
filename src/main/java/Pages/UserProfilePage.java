@@ -7,9 +7,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class UserProfilePage {
 
-    SelenideElement userProfileLink = $("a[name='profile']");
+    SelenideElement userProfileLink = $("a.header-topline__user-link"); // $("a[name='profile']");
 
-    public void checkLoggedUserName(String expUserName){
+    public UserProfilePage checkLoggedUserName(String expUserName){
         userProfileLink.shouldHave(Condition.text(expUserName));
+        return this;
     }
 }
