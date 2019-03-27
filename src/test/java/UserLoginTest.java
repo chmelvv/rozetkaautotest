@@ -16,7 +16,7 @@ public class UserLoginTest extends BaseTest{
 
     @AfterMethod
     public  void logOff(){
-        log.debug("logOff :" + Thread.currentThread().getId());
+       // log.debug("logOff :" + Thread.currentThread().getId());
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }
@@ -26,13 +26,14 @@ public class UserLoginTest extends BaseTest{
         log.debug("defaultUserCanLogin :" + Thread.currentThread().getId());
         User defaultUser = new User();
         MainPage mainPage = new MainPage();
+
         mainPage
                 .open()
                 .loginUser(defaultUser.getUserEmail(), defaultUser.getUserPassword())
                 .checkLoggedUserName(defaultUser.getUserName());
     }
 
-    @DataProvider(name = "userList")
+    @DataProvider(name = "userList", parallel = true)
     public Object[][] createData1() {
         return new Object[][] {
                 { "testUser","pizejeku-1795@yopmail.com","kV8AkL4nrC9CbTa"},
@@ -42,6 +43,8 @@ public class UserLoginTest extends BaseTest{
 
     @Test (dataProvider = "userList")
     public void checkUserListForLogin(String username, String email, String password){
+        log.info("checkUserListForLogin: " + Thread.currentThread().getId());
+
         MainPage mainPage = new MainPage();
 
         mainPage

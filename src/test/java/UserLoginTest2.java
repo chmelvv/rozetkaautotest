@@ -27,7 +27,7 @@ public class UserLoginTest2 extends BaseTest{
                 .checkLoggedUserName(defaultUser.getUserName());
     }
 
-    @DataProvider(name = "userList")
+    @DataProvider(name = "userList", parallel = true)
     public Object[][] createData1() {
         //read from file
         //CSV DataProvider
