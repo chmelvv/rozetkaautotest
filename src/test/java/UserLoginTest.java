@@ -1,10 +1,12 @@
 import Pages.MainPage;
 import com.codeborne.selenide.Selenide;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+@Slf4j
 public class UserLoginTest extends BaseTest{
 
     /* Initialized from testng.xml */
@@ -14,14 +16,14 @@ public class UserLoginTest extends BaseTest{
 
     @AfterMethod
     public  void logOff(){
-        System.out.println("logOff :" + Thread.currentThread().getId());
+        log.debug("logOff :" + Thread.currentThread().getId());
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }
 
     @Test
     public void defaultUserCanLogin(){
-        System.out.println("defaultUserCanLogin :" + Thread.currentThread().getId());
+        log.debug("defaultUserCanLogin :" + Thread.currentThread().getId());
         User defaultUser = new User();
         MainPage mainPage = new MainPage();
         mainPage

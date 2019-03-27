@@ -2,9 +2,11 @@ package Pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import lombok.extern.slf4j.Slf4j;
 
 import static com.codeborne.selenide.Selenide.$;
 
+@Slf4j
 public class MainPage {
 
     SelenideElement loginLink = $("a.header-topline__user-link"); //$("a[name='signin']");
@@ -13,6 +15,7 @@ public class MainPage {
     SelenideElement userLoginButton = $("button.auth-modal__login-button"); //$("button[name='auth_submit']");
 
     public MainPage open(){
+        log.debug("Opening main page in " + Thread.currentThread().getId());
         Selenide.open("/");
         return this;
     }
