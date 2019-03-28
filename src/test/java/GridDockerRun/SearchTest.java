@@ -1,3 +1,5 @@
+package GridDockerRun;
+
 import Data.Product;
 import Pages.MainPage;
 import lombok.extern.slf4j.Slf4j;
@@ -7,13 +9,25 @@ import org.apache.metamodel.data.Row;
 import org.apache.metamodel.factory.DataContextFactoryRegistryImpl;
 import org.apache.metamodel.factory.DataContextPropertiesImpl;
 import org.apache.metamodel.schema.Table;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 @Slf4j
-public class SearchTest extends BaseTestLocal {
+public class SearchTest extends BaseTestSeleniumGrid {
+
+    private String browser;
+    private String platform;
+
+    @BeforeMethod
+    @Parameters( {"platform", "browser" })
+    public void setup(String platform, String browser){
+        super.setupBrowser(platform, browser);
+    }
+
 
     @Test
     public void searchForDefaultProduct(){
@@ -33,7 +47,6 @@ public class SearchTest extends BaseTestLocal {
             properties.put("type", "csv");
             properties.put("resource", "src/test/resources/ProductList.csv");
             properties.put("quote-char", '"');
-            properties.put("separator-char", ',');
             properties.put("separator-char", ',');
             properties.put("encoding", "UTF-8" );
 

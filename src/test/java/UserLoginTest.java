@@ -7,7 +7,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 @Slf4j
-public class UserLoginTest extends BaseTest{
+public class UserLoginTest extends BaseTestLocal {
 
     /* Initialized from testng.xml */
     private String username;
