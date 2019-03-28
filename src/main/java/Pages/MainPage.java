@@ -13,9 +13,9 @@ public class MainPage {
     SelenideElement userNameField  = $("input#auth_email"); //$("input[name='login']");
     SelenideElement userPasswordField  = $("input#auth_pass"); //$("input[name='password']");
     SelenideElement userLoginButton = $("button.auth-modal__login-button"); //$("button[name='auth_submit']");
+    SelenideElement searchBar = $("input.rz-header-search-input-text");
 
     public MainPage open(){
-        log.debug("Opening main page in " + Thread.currentThread().getId());
         Selenide.open("/");
         return this;
     }
@@ -30,4 +30,9 @@ public class MainPage {
     }
 
 
+    public ProductDetailsPage search(String productName) {
+        searchBar.setValue(productName).pressEnter();
+
+        return new ProductDetailsPage();
+    }
 }
