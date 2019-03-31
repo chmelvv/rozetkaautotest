@@ -1,4 +1,5 @@
-import Data.Product;
+import SeleniumGrid.Product;
+import Local.BaseTest;
 import Pages.MainPage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.metamodel.DataContext;
@@ -13,7 +14,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 @Slf4j
-public class SearchTest extends BaseTestLocal {
+public class SearchTest extends BaseTest {
 
     @Test
     public void searchForDefaultProduct(){

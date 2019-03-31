@@ -7,8 +7,8 @@
 		<parameter name="email" value="pizejeku-1795@yopmail.com" />
 		<parameter name="password" value="kV8AkL4nrC9CbTa" />
 		<classes>
-			<class name="UserLoginTest" />
-			<class name="UserLoginTest2" />
+			<class name="Local.UserLoginTest" />
+			<class name="Local.UserLogin2Test" />
 		</classes>
 	</test>
 </suite>

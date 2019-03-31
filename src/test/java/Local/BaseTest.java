@@ -1,9 +1,11 @@
+package Local;
+
 import com.codeborne.selenide.Configuration;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.BeforeMethod;
 
 @Slf4j
-public class BaseTestLocal {
+public class BaseTest {
 
     @BeforeMethod
     public void setupBrowser() {
@@ -12,5 +14,9 @@ public class BaseTestLocal {
         Configuration.browser = "firefox";
         Configuration.browserVersion = "66";
     }
+
+
+
+
 
 }

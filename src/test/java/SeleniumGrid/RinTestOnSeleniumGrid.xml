@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="DifferentBrowsers" >
-
-	<test name="SearchTestInChrome" parallel="tests" thread-count="10">
+<suite name="DifferentBrowsers" parallel="tests">
+	<test name="SearchTestInChrome">
 		<parameter name="browser" value="chrome" />
 		<parameter name="platform" value="WINDOWS" />
 		<classes>
-			<class name="GridDockerRun.SearchTest" />
+			<class name="SeleniumGrid.SearchTest" />
 		</classes>
 	</test>
 	<test name="SearchTestInFirefox">
 		<parameter name="browser" value="firefox" />
 		<parameter name="platform" value="WINDOWS" />
 		<classes>
-			<class name="GridDockerRun.SearchTest" />
+			<class name="SeleniumGrid.SearchTest" />
 		</classes>
 	</test>
 </suite>

@@ -1,3 +1,5 @@
+package Local;
+
 import Pages.MainPage;
 import com.codeborne.selenide.Selenide;
 import lombok.extern.slf4j.Slf4j;
@@ -6,24 +8,24 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-@Slf4j
-public class UserLoginTest extends BaseTestLocal {
+/* the same test as UserLoginTest, just to show a lot of parallel test execution */
 
-    /* Initialized from testng.xml */
+@Slf4j
+public class UserLogin2Test extends BaseTest {
+
+
     private String username;
     private String email;
     private String password;
 
     @AfterMethod
-    public  void logOff(){
-       // log.debug("logOff :" + Thread.currentThread().getId());
+    public  void logOffFromSite(){
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }
 
     @Test
     public void defaultUserCanLogin(){
-        log.debug("defaultUserCanLogin :" + Thread.currentThread().getId());
         User defaultUser = new User();
         MainPage mainPage = new MainPage();
 
@@ -35,6 +37,8 @@ public class UserLoginTest extends BaseTestLocal {
 
     @DataProvider(name = "userList", parallel = true)
     public Object[][] createData1() {
+        //read from file
+        //CSV DataProvider
         return new Object[][] {
                 { "testUser","pizejeku-1795@yopmail.com","kV8AkL4nrC9CbTa"},
                 {"emeppubi-4889","emeppubi-4889@yopmail.com","vhLYNfpTpasMZ6b" }
@@ -43,10 +47,7 @@ public class UserLoginTest extends BaseTestLocal {
 
     @Test (dataProvider = "userList")
     public void checkUserListForLogin(String username, String email, String password){
-        log.info("checkUserListForLogin: " + Thread.currentThread().getId());
-
         MainPage mainPage = new MainPage();
-
         mainPage
                 .open()
                 .loginUser(email, password)
@@ -54,7 +55,7 @@ public class UserLoginTest extends BaseTestLocal {
     }
 
     @Test
-    @Parameters ({"username", "email", "password"})
+    @Parameters({"username", "email", "password"})
     public void parametrizedUserCanLogin(String username, String email, String password){
         MainPage mainPage = new MainPage();
         mainPage

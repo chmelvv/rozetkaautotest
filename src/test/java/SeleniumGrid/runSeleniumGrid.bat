@@ -1,8 +1,8 @@
-:: Delete all driver processes
+:: Delete all drivers processes
 taskkill /F /IM chromedriver.exe
 taskkill /F /IM geckodriver.exe
 
-:: Start slenium grid hub and node from scirpt
+:: Start selenium grid hub and node from scirpt
 cd C:\Users\vchmel\programs\selenium-server
 start "Selenium hub" java -jar selenium-server-standalone-3.141.59.jar -role hub
 

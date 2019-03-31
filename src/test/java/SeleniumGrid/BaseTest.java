@@ -1,4 +1,4 @@
-package GridDockerRun;
+package SeleniumGrid;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 @Slf4j
-public class BaseTestSeleniumGrid {
+public class BaseTest {
 
     public void setupBrowser(String platform, String browser) {
         Configuration.baseUrl = "https://rozetka.com.ua";
@@ -53,14 +53,13 @@ public class BaseTestSeleniumGrid {
         RemoteWebDriver driver = null;
         try {
             driver = new RemoteWebDriver(
-                    new URL("http://192.168.1.41:4444/wd/hub"),
+                    new URL("http://192.168.1.40:4444/wd/hub"),
                     dc);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
 
         WebDriverRunner.setWebDriver(driver);
-
     }
 
     @AfterMethod

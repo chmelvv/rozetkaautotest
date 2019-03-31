@@ -1,23 +1,31 @@
+package Local;
+
 import Pages.MainPage;
 import com.codeborne.selenide.Selenide;
 import lombok.extern.slf4j.Slf4j;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 @Slf4j
-public class UserLoginTest2 extends BaseTestLocal {
+public class UserLoginTest extends BaseTest {
 
+    /* Initialized from testng.xml */
     private String username;
     private String email;
     private String password;
 
     @AfterMethod
     public  void logOff(){
+        // log.debug("logOff :" + Thread.currentThread().getId());
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }
 
     @Test
     public void defaultUserCanLogin(){
+        UserLoginTest.log.debug("defaultUserCanLogin :" + Thread.currentThread().getId());
         User defaultUser = new User();
         MainPage mainPage = new MainPage();
 
@@ -29,8 +37,6 @@ public class UserLoginTest2 extends BaseTestLocal {
 
     @DataProvider(name = "userList", parallel = true)
     public Object[][] createData1() {
-        //read from file
-        //CSV DataProvider
         return new Object[][] {
                 { "testUser","pizejeku-1795@yopmail.com","kV8AkL4nrC9CbTa"},
                 {"emeppubi-4889","emeppubi-4889@yopmail.com","vhLYNfpTpasMZ6b" }
@@ -39,7 +45,10 @@ public class UserLoginTest2 extends BaseTestLocal {
 
     @Test (dataProvider = "userList")
     public void checkUserListForLogin(String username, String email, String password){
+        UserLoginTest.log.info("checkUserListForLogin: " + Thread.currentThread().getId());
+
         MainPage mainPage = new MainPage();
+
         mainPage
                 .open()
                 .loginUser(email, password)
@@ -47,7 +56,7 @@ public class UserLoginTest2 extends BaseTestLocal {
     }
 
     @Test
-    @Parameters ({"username", "email", "password"})
+    @Parameters({"username", "email", "password"})
     public void parametrizedUserCanLogin(String username, String email, String password){
         MainPage mainPage = new MainPage();
         mainPage
