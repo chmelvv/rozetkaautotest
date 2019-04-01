@@ -1,5 +1,6 @@
+package SelenoidInDockerContainers;
+
 import SeleniumGrid.Product;
-import Local.BaseTest;
 import Pages.MainPage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.metamodel.DataContext;
@@ -56,7 +57,7 @@ public class SearchTest extends BaseTest {
         return result;
     }
 
-    @Test (dataProvider = "csv")
+    //@Test (dataProvider = "csv")
     public void searchProductList(String productName, String expProductId){
 
         MainPage mainPage = new MainPage();

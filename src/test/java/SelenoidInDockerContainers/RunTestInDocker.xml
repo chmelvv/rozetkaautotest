@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="DifferentBrowserVersion" >
+	<parameter name="enableVNC" value="false" />
+	<test name="Firefox65">
+		<parameter name="browser" value="firefox" />
+		<parameter name="browserVersion" value="65.0" />
+		<classes>
+			<class name="SelenoidInDockerContainers.SearchTest" />
+		</classes>
+	</test>
+	<test name="Firefox66">
+		<parameter name="browser" value="firefox" />
+		<parameter name="browserVersion" value="66.0" />
+
+		<classes>
+			<class name="SelenoidInDockerContainers.SearchTest" />
+		</classes>
+	</test>
+</suite>
