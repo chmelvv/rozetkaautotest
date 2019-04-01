@@ -121,13 +121,13 @@ public class SearchTest {
         //      -hub  http://<HUB_IP>:4444/grid/register/
 
         DesiredCapabilities dc =  new DesiredCapabilities();
-        dc.setPlatform(Platform.fromString(platform));
-        dc.setBrowserName(browser);
+            dc.setPlatform(Platform.fromString(platform));
+            dc.setBrowserName(browser);
 
         RemoteWebDriver driver = null;
         try {
             driver = new RemoteWebDriver(
-                    new URL("http://192.168.1.40:4444/wd/hub"),
+                    new URL("http://127.0.0.1:3333/wd/hub"),
                     dc);
         } catch (MalformedURLException e) {
             e.printStackTrace();
