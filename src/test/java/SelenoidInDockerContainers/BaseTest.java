@@ -22,7 +22,7 @@ public class BaseTest {
         DesiredCapabilities browser = new DesiredCapabilities();
             browser.setBrowserName( context.getCurrentXmlTest().getParameter("browser") );
             browser.setVersion( context.getCurrentXmlTest().getParameter("browserVersion") );
-           // browser.setCapability("enableVNC", context.getCurrentXmlTest().getParameter("enableVNC"));
+           // browser.setCapability("enableVNC", "true" );
         RemoteWebDriver driver = new RemoteWebDriver(URI.create("http://10.124.89.109:8001/wd/hub").toURL(), browser);
         WebDriverRunner.setWebDriver(driver);
     }

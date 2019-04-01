@@ -12,16 +12,15 @@
 
 # sudo dockerd &
 
-#Windows com.docker.service
-
 # sudo sysctl net.bridge.bridge-nf-call-iptables=1
 # sudo sysctl net.bridge.bridge-nf-call-ip6tables=1
-
+# -------------------------------------------------------
 # sudo docker pull selenoid/firefox:65.0
 # sudo docker pull selenoid/firefox:66.0
 
 # sudo docker pull selenoid/vnc:chrome_72.0
 # sudo docker pull selenoid/vnc:chrome_73.0
+# -------------------------------------------------------
 set -x
 
 docker rm -f selenoid

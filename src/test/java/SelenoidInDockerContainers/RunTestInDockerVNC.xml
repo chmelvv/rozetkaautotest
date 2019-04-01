@@ -2,7 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="DifferentBrowserVersion2">
-	<parameter name="enableVNC" value="false" />
 	<test name="Chrome72">
 		<parameter name="browser" value="chrome" />
 		<parameter name="browserVersion" value="72.0" />

@@ -57,7 +57,7 @@ public class SearchTest extends BaseTest {
         return result;
     }
 
-    //@Test (dataProvider = "csv")
+    @Test (dataProvider = "csv")
     public void searchProductList(String productName, String expProductId){
 
         MainPage mainPage = new MainPage();
