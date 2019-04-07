@@ -54,6 +54,12 @@
 			<artifactId>allure-testng</artifactId>
 			<version>${allure.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>7.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
